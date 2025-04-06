@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        .bg-container
+        {
+            background-color: aliceblue;
+            text-align: center;
+            
+        }
+        .counting-heading
+        {
+            font-family: "Roboto";
+            font-size: 50px;
+            color:blueviolet
+        }
+        .counter-value
+        {
+            font-size: 75px;
+            font-weight: 900;
+        }
+        .button {
+            background-color: #f1f5f8;
+            border-width: 2px;
+            border-color: black;
+            border-radius: 7px;
+            margin: 8px;
+            padding: 5px;
+}
+    </style>
+    <body>
+        <div class="bg-container">
+            <h1 class="counting-heading">Counting</h1>
+            <p id="counterValue" class="counter-value">0</p>
+            <div>
+                <button class="button" onclick="onDecrement()">DECREASE</button>
+                <button class="button" onclick="onReset()">RESET</button>
+                <button class="button" onclick="onIncrement()">INCREASE</button>
+            </div>
+        </div>
+        <script>
+            let counterElemnet=document.getElementById("counterValue");
+            let clickSound = new Audio("music.wav");
+            function onIncrement()
+            {
+                clickSound.play();
+                let previous=counterElemnet.textContent;
+                let update=parseInt(previous)+1;
+                counterElemnet.textContent=update;
+                if (update>0)
+                {
+                    counterElemnet.style.color="green" 
+                }
+                else if (update<0)
+                {
+                    counterElemnet.style.color="red"
+                }
+                else{
+                    counterElemnet.style.color="black"
+                }
+    
+
+            }
+            function onReset()
+            {
+                update=0
+                counterElemnet.textContent=update;
+                counterElemnet.style.color="black"
+
+            }
+            function onDecrement()
+            {
+                let previous=counterElemnet.textContent;
+                let update=parseInt(previous)-1;
+                counterElemnet.textContent=update;
+                if (update>0)
+                {
+                    counterElemnet.style.color="green" 
+                }
+                else if (update<0)
+                {
+                    counterElemnet.style.color="red"
+                }
+                else{
+                    counterElemnet.style.color="black"
+                }
+                
+
+            }
+        </script>
+    </body>
+</head>
